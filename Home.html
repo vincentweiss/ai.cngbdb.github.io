@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> DataMindHub （BiomiGO）| 名字待定 </title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .logo {
+    height: 50px; /* Adjust as per your logo's dimensions */
+  }
+  .title {
+    margin: 20px 0;
+    font-size: 2em;
+  }
+  .introduction {
+    margin-bottom: 20px;
+    font-size: 1em;
+    text-align: justify;
+  }
+  .image-slider {
+    width: 100%;
+    overflow: hidden; /* Hide the overflow */
+    position: relative;
+  }
+  .image-slider img {
+    width: 100%;
+    display: block; /* Prevent inline spacing */
+    transition: transform 0.5s ease-in-out;
+  }
+  .btn-prev, .btn-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .btn-prev { left: 10px; }
+  .btn-next { right: 10px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+  <header>
+    <img src="logo.png" alt="DataMindHub Logo" class="logo">
+  </header>
+  
+  <div class="title">
+    Welcome to DataMindHub
+  </div>
+  
+  <div class="introduction">
+    DataMindHub is your one-stop solution for big data and artificial intelligence insights. We provide a comprehensive platform that aggregates data tools and resources to empower your analytics and AI projects.
+  </div>
+  
+  <div class="image-slider" id="image-slider">
+    <button class="btn-prev" onclick="moveSlide(-1)">❮</button>
+    <button class="btn-next" onclick="moveSlide(1)">❯</button>
+    <img src="image1.jpg" alt="Image 1">
+    <img src="image2.jpg" alt="Image 2">
+    <img src="image3.jpg" alt="Image 3">
+  </div>
+
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function moveSlide(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.querySelectorAll('.image-slider img');
+  
+  if (n > slides.length - 1) slideIndex = 0;
+  if (n < 0) slideIndex = slides.length - 1;
+
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+
+  slides[slideIndex].style.display = "block";
+}
+</script>
+
+</body>
+</html>
